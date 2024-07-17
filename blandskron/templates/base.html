@@ -1,49 +1,43 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="es">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HTRJHD9N0"></script>
+    <script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        window.dataLayer = window.dataLayer || [];
+        gtag("js", new Date());
+        gtag("config", "G-0HTRJHD9N0");
+    </script>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'css/output.css' %}" rel="stylesheet">
-    <title>{% block title %}Mi Proyecto{% endblock %}</title>
+    <title>{% block title %}Modo Oscuro y Claro{% endblock %}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/whatsapp.css' %}" rel="stylesheet">
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-    <header class="bg-pink-500 text-white p-4">
-        <h1 class="text-3xl">Mi Proyecto</h1>
-        <div class="mt-4">
-            <button id="light-mode" class="px-2 py-1 bg-white text-black border rounded">Light</button>
-            <button id="dark-mode" class="px-2 py-1 bg-black text-white border rounded">Dark</button>
-            <button id="system-mode" class="px-2 py-1 bg-gray-200 text-black border rounded">System</button>
-        </div>
+<body class="light-mode">
+
+    <header>
+        {% include 'header.html' %}
     </header>
-    <main class="p-4">
+
+
+
+    <div class="container mt-5">
         {% block content %}
         {% endblock %}
-    </main>
-    <script>
-        document.getElementById('light-mode').onclick = () => {
-            document.documentElement.classList.remove('dark');
-            document.documentElement.classList.add('light');
-            localStorage.setItem('theme', 'light');
-        };
+    </div>
 
-        document.getElementById('dark-mode').onclick = () => {
-            document.documentElement.classList.remove('light');
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-        };
-
-        document.getElementById('system-mode').onclick = () => {
-            document.documentElement.classList.remove('light', 'dark');
-            localStorage.removeItem('theme');
-        };
-
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else if (localStorage.getItem('theme') === 'light') {
-            document.documentElement.classList.add('light');
-        }
-    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>
