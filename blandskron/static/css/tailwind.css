@@ -1,0 +1,13 @@
+/* static/css/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos adicionales para modo oscuro */
+.dark .bg-custom-dark {
+    background-color: #1a1a1a;
+}
+
+.dark .text-custom-dark {
+    color: #f5f5f5;
+}

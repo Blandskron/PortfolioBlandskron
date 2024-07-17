@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+    <title>{% block title %}Mi Proyecto{% endblock %}</title>
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    <header class="bg-pink-500 text-white p-4">
+        <h1 class="text-3xl">Mi Proyecto</h1>
+        <div class="mt-4">
+            <button id="light-mode" class="px-2 py-1 bg-white text-black border rounded">Light</button>
+            <button id="dark-mode" class="px-2 py-1 bg-black text-white border rounded">Dark</button>
+            <button id="system-mode" class="px-2 py-1 bg-gray-200 text-black border rounded">System</button>
+        </div>
+    </header>
+    <main class="p-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <script>
+        document.getElementById('light-mode').onclick = () => {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+            localStorage.setItem('theme', 'light');
+        };
+
+        document.getElementById('dark-mode').onclick = () => {
+            document.documentElement.classList.remove('light');
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        };
+
+        document.getElementById('system-mode').onclick = () => {
+            document.documentElement.classList.remove('light', 'dark');
+            localStorage.removeItem('theme');
+        };
+
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light');
+        }
+    </script>
+</body>
+</html>
