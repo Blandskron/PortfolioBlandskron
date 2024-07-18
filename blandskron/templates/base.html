@@ -58,24 +58,11 @@
         {% include 'header.html' %}
     </header>
 
-    <div class="nav-vertical">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-            </li>
-        </ul>
-    </div>
+    <nav>
+        {% include 'navbar.html' %}
+    </nav>
 
-    <div class="content">
+    <main class="content">
         <div class="container mt-5">
             {% block content %}
             {% endblock %}
@@ -84,12 +71,12 @@
         <p>This is a sample documentation page. Here you can describe the various endpoints of your API, how to use them, and provide examples.</p>
         <h2>Endpoint 1: Get User</h2>
         <p>Use this endpoint to retrieve information about a user.</p>
-        <pre><code>GET /api/user/{id}</code></pre>
+        <pre class="pre-scrollable bg-light p-3"><code>GET /api/user/{id}</code></pre>
         <h2>Endpoint 2: Create User</h2>
         <p>Use this endpoint to create a new user.</p>
-        <pre><code>POST /api/user</code></pre>
+        <pre class="pre-scrollable bg-light p-3"><code>POST /api/user</code></pre>
         <!-- Add more sections as needed -->
-    </div>
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
