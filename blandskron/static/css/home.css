@@ -36,7 +36,13 @@
     border: 4px solid rgb(106, 21, 162); 
     padding: 7px;
     margin: 0px;
-};
+}
+
+.shadow-image {
+    filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.5));
+    border-radius: 50%;
+}
+
 @media (max-width: 768px) {
     .imgperfil {
         width: 40%;
