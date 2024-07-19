@@ -21,36 +21,6 @@
     <link href="{% static 'css/whatsapp.css' %}" rel="stylesheet">
     <link href="{% static 'css/home.css' %}" rel="stylesheet">
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-    <style>
-     .nav-vertical {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 200px;
-            background-color: #f8f9fa;
-            border-right: 1px solid #dee2e6;
-            padding-top: 20px;
-        }
-        .nav-vertical .nav-link {
-            color: #000;
-        }
-        .dark-mode .nav-vertical {
-            background-color: #343a40;
-            border-right: 1px solid #454d55;
-        }
-        .dark-mode .nav-vertical .nav-link {
-            color: #fff;
-        }
-        .content {
-            margin-left: 220px;
-            padding: 20px;
-        }
-        .dark-mode .content {
-            background-color: #212529;
-            color: #fff;
-        }
-    </style>
 </head>
 <body class="light-mode">
 
@@ -62,7 +32,7 @@
         {% include 'navbar.html' %}
     </nav>
 
-    <main class="content">
+    <main class="content" id="content">
         <div class="container mt-5">
             {% block content %}
             {% endblock %}
@@ -76,11 +46,34 @@
         <p>Use this endpoint to create a new user.</p>
         <pre class="pre-scrollable bg-light p-3"><code>POST /api/user</code></pre>
         <!-- Add more sections as needed -->
+        <h2 id="section1">Introducción</h2>
+        <p>Bienvenido a la documentación de nuestro proyecto. Aquí encontrará información detallada sobre cómo usar y aprovechar al máximo nuestro software.</p>
+    
+        <h2 id="section2">Instalación</h2>
+        <p>Para instalar nuestro software, siga estos pasos:</p>
+        <ol>
+          <li>Descargue el instalador desde nuestra página web.</li>
+          <li>Ejecute el instalador y siga las instrucciones en pantalla.</li>
+          <li>Una vez completada la instalación, abra el programa desde su menú de aplicaciones.</li>
+        </ol>
+    
+        <h2 id="section3">Guía de uso</h2>
+        <p>Nuestra guía de uso le ayudará a comenzar con las funcionalidades básicas y avanzadas de nuestro software.</p>
+    
+        <h2 id="section4">API</h2>
+        <p>La API permite a los desarrolladores integrar nuestro software con otras aplicaciones. Consulte nuestra referencia de API para obtener más detalles.</p>
+    
+        <h2 id="section5">FAQs</h2>
+        <p>En esta sección encontrará respuestas a las preguntas más frecuentes sobre nuestro software.</p>
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div>
+        {% include 'whatsapp.html' %}
+    </div>
+
     <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
